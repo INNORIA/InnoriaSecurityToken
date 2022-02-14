@@ -1,0 +1,9 @@
+.env
+.env.*
+node_modules
+bin
+build
+draft-test
+coverage
+artifacts
+yarn-error.log

@@ -1,0 +1,20 @@
+{
+  "main": "./contracts/InnoriaSecurityToken.sol",
+  "deploy": "./build/contracts/InnoriaSecurityToken.json",
+  "framework": "truffle",
+  "npmClient": "yarn",
+  "compilers": {
+    "solc": "0.8.6",
+    "truffle": "v5.4.3",
+    "evmVersion": "istanbul",
+    "optimizer": {
+      "enabled": true
+    }
+  },
+  "linter": "solhint",
+  "editor": {
+    "fontFamily": "Hack",
+    "fontSize": "13px",
+    "ligatures": false
+  }
+}

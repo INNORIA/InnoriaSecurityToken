@@ -1,0 +1,62 @@
+{
+  "name": "innoriasecuritytoken",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/INNORIA/InnoriaSecurityToken.git"
+  },
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "truffle compile",
+    "clean": "rm -rf artifacts",
+    "test": "yarn truffle test",
+    "coverage": "yarn truffle run coverage --network coverage",
+    "deploy": "yarn truffle migrate --network",
+    "verify": "truffle run verify InnoriaSecurityToken InnoriaSecurityTokenValidator --network",
+    "deploy:testnet": "ETHNW=testnet yarn deploy testnet",
+    "verify:testnet": "ETHNW=testnet truffle deploy testnet",
+    "deploy:bsc": "ETHNW=bsc yarn deploy bsc",
+    "verify:bsc": "ETHNW=bsc truffle verify bsc"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@openzeppelin/test-helpers": "^0.5.6",
+    "@typechain/ethers-v5": "^8.0.5",
+    "@typechain/truffle-v5": "^6.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.23.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
+    "dotenv": "^16.0.0",
+    "eslint": "^7.9.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-truffle": "^0.3.1",
+    "eth-lib": "^0.1.29",
+    "ethereumjs-testrpc-sc": "6.1.6",
+    "ethereumjs-util": "^5.1.2",
+    "fs-extra": "^7.0.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "remix-ide": "^0.10.3",
+    "sol-merger": "0.1.4",
+    "solidity-coverage": "0.8.0-beta.0",
+    "solium": "^1.2.5",
+    "solium-plugin-zeppelin": "^0.0.2",
+    "truffle": "5.4.6",
+    "truffle-plugin-verify": "^0.5.15",
+    "typechain": "^6.0.5",
+    "web3-utils": "^1.7.0",
+    "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "dependencies": {
+    
+  }
+}
