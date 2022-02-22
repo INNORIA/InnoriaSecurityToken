@@ -1,6 +1,6 @@
-const InnoriaSecurityToken = artifacts.require('./InnoriaSecurityToken.sol');
+const Token = artifacts.require('./InnoriaSecurityToken.sol');
+const TokenStandard = artifacts.require('./InnoriaSecurityTokenStandard.sol');
 const Extension = artifacts.require('./InnoriaSecurityTokenValidator.sol');
-const ERC1820Registry = artifacts.require('IERC1820Registry');
 
 const CERTIFICATE_SIGNER = process.env.CERTSIGNER;
 const controller = process.env.CONTROLLER;
@@ -21,14 +21,18 @@ const CERTIFICATE_VALIDATION_SALT = 2;
 module.exports = async function (deployer, network, accounts) {
   if (network == "test") return; // test maintains own contracts
 
+  await deployer.deploy(TokenStandard, 'InnoriaSecurityTokenStandard', 'ISTS', 1, [controller], partitions);
+  const tokenStandardInstance = await TokenStandard.deployed();
+  console.log('\n   > InnoriaSecurityTokenStandard token deployment: Success -->', tokenStandardInstance.address);
+
   //>> Deploy main token and extension
 
   await deployer.deploy(Extension);
   const extension = await Extension.deployed();
   console.log('\n   > InnoriaSecurityTokenValidator deployment: Success -->', extension.address);
 
-  await deployer.deploy(InnoriaSecurityToken, 'InnoriaSecurityToken', 'IST', 1, [controller], partitions, extension.address, controller, CERTIFICATE_SIGNER, CERTIFICATE_VALIDATION_SALT);
-  const tokenInstance = await InnoriaSecurityToken.deployed();
+  await deployer.deploy(Token, 'InnoriaSecurityToken', 'IST', 1, [controller], partitions, extension.address, controller, CERTIFICATE_SIGNER, CERTIFICATE_VALIDATION_SALT);
+  const tokenInstance = await Token.deployed();
   console.log('\n   > InnoriaSecurityToken token deployment with automated extension setup: Success -->', tokenInstance.address);
 
   //<< Deploy main token and extension

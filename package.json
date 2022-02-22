@@ -11,15 +11,14 @@
     "clean": "rm -rf artifacts",
     "test": "yarn truffle test",
     "coverage": "yarn truffle run coverage --network coverage",
-    "deploy": "yarn truffle migrate --network",
-    "verify": "truffle run verify InnoriaSecurityToken InnoriaSecurityTokenValidator --network",
-    "deploy:testnet": "ETHNW=testnet yarn deploy testnet",
-    "verify:testnet": "ETHNW=testnet truffle deploy testnet",
-    "deploy:bsc": "ETHNW=bsc yarn deploy bsc",
-    "verify:bsc": "ETHNW=bsc truffle verify bsc"
+    "deploy:testnet": "ETHNET=testnet truffle migrate --network testnet",
+    "verify:testnet": "ETHNET=testnet truffle run verify InnoriaSecurityToken InnoriaSecurityTokenStandard InnoriaSecurityTokenValidator --network testnet",
+    "deploy:bsc": "ETHNET=bsc truffle migrate --network bsc",
+    "verify:bsc": "ETHNET=bsc truffle run verify InnoriaSecurityToken InnoriaSecurityTokenStandard InnoriaSecurityTokenValidator --network bsc"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@openzeppelin/contracts": "^4.5.0",
     "@openzeppelin/test-helpers": "^0.5.6",
     "@typechain/ethers-v5": "^8.0.5",
     "@typechain/truffle-v5": "^6.0.0",

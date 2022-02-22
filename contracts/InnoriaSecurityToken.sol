@@ -15,14 +15,13 @@
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - */
 /*                                                                              */
 /*    Website:            https://innoria.com/                                  */
-/*    Security contact:   security@innoria.com                                  */
-/*    Investor contact:   investors@innoria.com                                 */
+/*    Contact:            contact@innoria.com                                   */
 /*    Whitepaper:         https://innoria.com/security-tokens                   */
 /*    Investor relations: https://innoria.com/investor-relations                */
 /*                                                                              */
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - */
 /*                                                                              */
-/*  Copyright 2022 INNORIA SOLUTION                                             */
+/*  Copyright © 2022 INNORIA SOLUTION                                           */
 /*                                                                              */
 /*  Licensed under the Apache License, Version 2.0 (the "License");             */
 /*  you may not use this file except in compliance with the License.            */
@@ -43,7 +42,7 @@ pragma solidity ^0.8.6;
 
 import { ERC1400HoldableCertificateToken } from "./ERC1400Base/ERC1400HoldableCertificateToken.sol";
 
-contract InnoriaSecurityHoldableCertificateToken is ERC1400HoldableCertificateToken {
+contract InnoriaSecurityToken is ERC1400HoldableCertificateToken {
 
     /**
      * @dev Initialize ERC1400 + initialize certificate controller.

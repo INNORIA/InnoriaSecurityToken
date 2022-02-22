@@ -1,12 +1,8 @@
-require('dotenv').config({ path: `.env.${process.env.ETHNW}` })
+require('dotenv').config({ path: `.env.${process.env.ETHNET}` })
 require('babel-register')
 require('babel-polyfill')
 const config = require('./config.json')
 const HDWalletProvider = require('truffle-hdwallet-provider')
-
-console.log('========================================')
-console.log("Ethereum Network:", process.env.ETHNW)
-console.log('========================================')
 
 module.exports = {
   plugins: ["solidity-coverage", "truffle-plugin-verify"],
@@ -34,8 +30,10 @@ module.exports = {
       disableConfirmationListener: true,
     },
     testnet: {
-      provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://data-seed-prebsc-1-s1.binance.org:8545`),
+      provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://data-seed-prebsc-2-s2.binance.org:8545/`),
       network_id: 97,
+      // gas: 10055186,
+      // gasPrice: 10000000000,
       timeoutBlocks: 1000000000,
       networkCheckTimeout: 1000000000,
       from: process.env.DEPLOYLER,
@@ -44,7 +42,7 @@ module.exports = {
     bsc: {
       provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://bsc-dataseed.binance.org/`),
       network_id: 56,
-      confirmations: 10,
+      confirmations: 2,
       timeoutBlocks: 200,
       from: process.env.DEPLOYLER,
       skipDryRun: true
