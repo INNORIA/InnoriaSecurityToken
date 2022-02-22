@@ -1,8 +1,4 @@
 // SPDX-License-Identifier: Apache-2.0
-/**
- * Credit to https://github.com/Consensys/UniversalToken
- * Source code implement base on UniversalToken (implementation of ERC1400 with various extensions)
- */
 pragma solidity ^0.8.6;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -792,12 +788,12 @@ contract ERC1400 is IERC20, IERC1400, Ownable, ERC1820Client, ERC1820Implementer
   /**
    * @dev Check the value of tokens that an owner allowed to a spender.
    * @param partition Name of the partition.
-   * @param owner address The address which owns the funds.
+   * @param ownerAllowed address The address which owns the funds.
    * @param spender address The address which will spend the funds.
    * @return A uint256 specifying the value of tokens still available for the spender.
    */
-  function allowanceByPartition(bytes32 partition, address owner, address spender) external override view returns (uint256) {
-    return _allowedByPartition[partition][owner][spender];
+  function allowanceByPartition(bytes32 partition, address ownerAllowed, address spender) external override view returns (uint256) {
+    return _allowedByPartition[partition][ownerAllowed][spender];
   }
   /**
    * @dev Approve the passed address to spend the specified amount of tokens on behalf of 'msg.sender'.

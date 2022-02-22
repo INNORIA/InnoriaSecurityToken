@@ -41,9 +41,45 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.6;
 
-import { ERC1400TokensValidator } from "./Extensions/ERC1400TokensValidator.sol";
+import { ERC1400HoldableCertificateToken } from "./ERC1400Base/ERC1400HoldableCertificateToken.sol";
 
-contract InnoriaSecurityTokenValidator is ERC1400TokensValidator {
-    constructor() ERC1400TokensValidator() {}
+contract InnoriaSecurityHoldableCertificateToken is ERC1400HoldableCertificateToken {
 
+    /**
+     * @dev Initialize ERC1400 + initialize certificate controller.
+     * @param tokenName Name of the token.
+     * @param tokenSymbol Symbol of the token.
+     * @param tokenGranularity Granularity of the token.
+     * @param tokenControllers Array of initial controllers.
+     * @param defaultPartitions Partitions chosen by default, when partition is
+     * not specified, like the case ERC20 tranfers.
+     * @param extension Address of token extension.
+     * @param newOwner Address whom contract ownership shall be transferred to.
+     * @param certificateSigner Address of the off-chain service which signs the
+     * conditional ownership certificates required for token transfers, issuance,
+     * redemption (Cf. CertificateController.sol).
+     * @param certificateActivated If set to 'true', the certificate controller
+     * is activated at contract creation.
+     */
+    constructor(
+        string memory tokenName,
+        string memory tokenSymbol,
+        uint256 tokenGranularity,
+        address[] memory tokenControllers,
+        bytes32[] memory defaultPartitions,
+        address extension,
+        address newOwner,
+        address certificateSigner,
+        CertificateValidation certificateActivated
+    ) ERC1400HoldableCertificateToken(
+        tokenName,
+        tokenSymbol,
+        tokenGranularity,
+        tokenControllers,
+        defaultPartitions,
+        extension,
+        newOwner,
+        certificateSigner,
+        certificateActivated
+    ) { }
 }

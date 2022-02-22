@@ -1,8 +1,4 @@
 // SPDX-License-Identifier: Apache-2.0
-/*
- * This code has not been reviewed.
- * Do not use or deploy this code before reviewing it personally first.
- */
 pragma solidity ^0.8.6;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -189,8 +185,6 @@ contract ERC1400TokensValidator is IERC1400TokensValidator, Pausable, Certificat
 
   constructor() {
     ERC1820Implementer._setInterface(ERC1400_TOKENS_VALIDATOR);
-
-
   }
 
   /**

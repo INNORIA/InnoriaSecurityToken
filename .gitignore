@@ -5,5 +5,8 @@ bin
 build
 draft-test
 coverage
+coverage.json
+deploys
 artifacts
 yarn-error.log
+node_modules.nosync

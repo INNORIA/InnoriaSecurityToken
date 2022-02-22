@@ -1,9 +1,4 @@
 // SPDX-License-Identifier: Apache-2.0
-/**
- * Credit to https://github.com/Consensys/UniversalToken
- * Source code implement base on UniversalToken (implementation of ERC1400 with various extensions)
- */
-
 pragma solidity ^0.8.6;
 
 /**
